@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-framework.iml" filepath="$PROJECT_DIR$/cloud-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-base/framework-base.iml" filepath="$PROJECT_DIR$/framework-base/framework-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-common/framework-common.iml" filepath="$PROJECT_DIR$/framework-common/framework-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-database/framework-database.iml" filepath="$PROJECT_DIR$/framework-database/framework-database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-eureka/framework-eureka.iml" filepath="$PROJECT_DIR$/framework-eureka/framework-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-jetty/framework-jetty.iml" filepath="$PROJECT_DIR$/framework-jetty/framework-jetty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-mybatis/framework-mybatis.iml" filepath="$PROJECT_DIR$/framework-mybatis/framework-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework-swagger/framework-swagger.iml" filepath="$PROJECT_DIR$/framework-swagger/framework-swagger.iml" />
+    </modules>
+  </component>
+</project>

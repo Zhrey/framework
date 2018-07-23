@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="framework-base" />
+        <module name="framework-database" />
+        <module name="framework-erurka" />
+        <module name="framework-eureka" />
+        <module name="framework-jetty" />
+        <module name="framework-mybatis" />
+        <module name="framework-mysql" />
+        <module name="framework-swagger" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-framework" target="1.8" />
+      <module name="framework-base" target="1.8" />
+      <module name="framework-common" target="1.8" />
+      <module name="framework-database" target="1.8" />
+      <module name="framework-erurka" target="1.5" />
+      <module name="framework-eureka" target="1.8" />
+      <module name="framework-jetty" target="1.8" />
+      <module name="framework-mybatis" target="1.8" />
+      <module name="framework-mysql" target="1.8" />
+      <module name="framework-swagger" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

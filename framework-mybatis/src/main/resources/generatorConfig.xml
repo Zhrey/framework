@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <classPathEntry
+            location="D:/work/repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar"/>
+
+    <context id="mysql" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/company_client?characterEncoding=utf8"
+                        userId="admin"
+                        password="admin">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.ray.cloud.framework.mybatis.entity"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.ray.cloud.framework.database.entity.BasicEntity"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.ray.cloud.framework.mybatis.mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.ray.cloud.framework.mybatis.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="rootInterface"
+                      value="BaseMapper"/>
+        </javaClientGenerator>
+
+        <table schema="company_client"
+               tableName="file_pic_display"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+    </context>
+</generatorConfiguration>

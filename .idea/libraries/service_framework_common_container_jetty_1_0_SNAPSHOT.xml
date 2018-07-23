@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="service-framework-common-container-jetty-1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/framework-jetty/target/service-framework-common-container-jetty-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

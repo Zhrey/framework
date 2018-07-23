@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>framework-mybatis</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>framework-mybatis</name>
+	<description>Demo project for Spring Boot</description>
+
+    <properties>
+        <mysql.version>5.1.45</mysql.version>
+        <mybatis.version>3.4.5</mybatis.version>
+        <MBG.version>1.3.5</MBG.version>
+        <mybatis-boot.version>1.3.0</mybatis-boot.version>
+    </properties>
+
+	<parent>
+		<artifactId>cloud-framework</artifactId>
+		<groupId>com.ray.cloud</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+    <dependencies>
+		<!--数据库连接-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+		<!--数据库基础类-->
+		<dependency>
+			<groupId>com.ray.cloud</groupId>
+			<artifactId>framework-database</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!--mybatis自动生成-->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>${mybatis-boot.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>${MBG.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
