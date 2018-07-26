@@ -1,4 +1,4 @@
-package com.ray.cloud.framework.database.dto;
+package com.ray.cloud.framework.base.dto;
 
 /**
  * @Author: ZhangRui

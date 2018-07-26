@@ -1,6 +1,6 @@
-package com.ray.cloud.framework.database.entity;
+package com.ray.cloud.framework.base.entity;
 
-import com.ray.cloud.framework.database.Enum.DeleteFlagEnum;
+import com.ray.cloud.framework.base.Enum.DeleteFlagEnum;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;

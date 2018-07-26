@@ -29,7 +29,7 @@
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
-            <property name="rootClass" value="com.ray.cloud.framework.database.entity.BasicEntity"/>
+            <property name="rootClass" value="com.ray.cloud.framework.base.entity.BasicEntity"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="com.ray.cloud.framework.mybatis.mapper"

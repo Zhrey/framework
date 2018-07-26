@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>framework-swagger</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>framework-feign</artifactId>
+	<version>${module.version}</version>
 	<packaging>jar</packaging>
 
-	<name>framework-swagger</name>
+	<name>framework-feign</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -18,16 +18,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.7.0</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
 	</dependencies>
-
 
 </project>

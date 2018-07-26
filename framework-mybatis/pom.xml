@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>framework-mybatis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${module.version}</version>
 	<packaging>jar</packaging>
 
 	<name>framework-mybatis</name>
@@ -34,10 +34,10 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
-		<!--数据库基础类-->
+		<!--基础类-->
 		<dependency>
 			<groupId>com.ray.cloud</groupId>
-			<artifactId>framework-database</artifactId>
+			<artifactId>framework-base</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

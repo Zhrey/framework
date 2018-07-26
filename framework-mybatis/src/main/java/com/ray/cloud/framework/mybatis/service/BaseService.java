@@ -1,11 +1,11 @@
 package com.ray.cloud.framework.mybatis.service;
 
-import com.ray.cloud.framework.database.dto.PageResultDTO;
-import com.ray.cloud.framework.database.dto.ResultDTO;
-import com.ray.cloud.framework.database.dto.ResultError;
-import com.ray.cloud.framework.database.entity.BasicEntity;
-import com.ray.cloud.framework.database.example.BaseExample;
-import com.ray.cloud.framework.database.utils.MysqlUtils;
+import com.ray.cloud.framework.base.dto.PageResultDTO;
+import com.ray.cloud.framework.base.dto.ResultDTO;
+import com.ray.cloud.framework.base.dto.ResultError;
+import com.ray.cloud.framework.base.entity.BasicEntity;
+import com.ray.cloud.framework.base.example.BaseExample;
+import com.ray.cloud.framework.base.utils.MysqlUtils;
 import com.ray.cloud.framework.mybatis.mapper.BaseMapper;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;

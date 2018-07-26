@@ -1,6 +1,6 @@
 package com.ray.cloud.framework.mybatis.entity;
 
-import com.ray.cloud.framework.database.entity.BasicEntity;
+import com.ray.cloud.framework.base.entity.BasicEntity;
 
 import java.util.Date;
 

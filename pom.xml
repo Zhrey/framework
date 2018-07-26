@@ -10,13 +10,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>framework-swagger</module>
         <module>framework-base</module>
         <module>framework-common</module>
         <module>framework-eureka</module>
         <module>framework-mybatis</module>
-        <module>framework-database</module>
         <module>framework-jetty</module>
+        <module>framework-feign</module>
     </modules>
 
     <parent>
@@ -31,6 +30,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
+        <module.version>0.0.1-SNAPSHOT</module.version>
         <lombok.version>1.16.20</lombok.version>
     </properties>
 

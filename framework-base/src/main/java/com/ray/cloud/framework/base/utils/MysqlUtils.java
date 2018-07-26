@@ -1,4 +1,4 @@
-package com.ray.cloud.framework.database.utils;
+package com.ray.cloud.framework.base.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;

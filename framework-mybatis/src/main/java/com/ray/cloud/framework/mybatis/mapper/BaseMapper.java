@@ -1,7 +1,7 @@
 package com.ray.cloud.framework.mybatis.mapper;
 
-import com.ray.cloud.framework.database.entity.BasicEntity;
-import com.ray.cloud.framework.database.example.BaseExample;
+import com.ray.cloud.framework.base.entity.BasicEntity;
+import com.ray.cloud.framework.base.example.BaseExample;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 

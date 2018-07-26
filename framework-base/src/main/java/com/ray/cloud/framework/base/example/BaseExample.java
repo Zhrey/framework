@@ -1,4 +1,4 @@
-package com.ray.cloud.framework.database.example;
+package com.ray.cloud.framework.base.example;
 
 import lombok.Data;
 
