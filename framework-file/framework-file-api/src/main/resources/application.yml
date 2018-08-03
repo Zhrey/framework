@@ -1,0 +1,8 @@
+server:
+  port: 8005
+spring:
+  name: framework-file
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
