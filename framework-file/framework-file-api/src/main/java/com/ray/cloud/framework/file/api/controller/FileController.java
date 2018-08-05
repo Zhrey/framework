@@ -73,7 +73,7 @@ public class FileController {
      * @date 2018-1-30
      * CrossOrigin 使用注解方式添加跨域访问消息头
      */
-    @RequestMapping(value = "/downloadfile", method = RequestMethod.GET)// TODO 路径驼峰命名
+    @RequestMapping(value = "/downloadFile", method = RequestMethod.GET)// TODO 路径驼峰命名
     @CrossOrigin
     public void getFileByPath(String filePath, String fileName, HttpServletResponse response) {// TODO 缺乏http注解
         try {
