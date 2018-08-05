@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 文件系统contrller层
  *
- * @author SL
+ * @author ZhangRui
  * @date 2018/01/18
  */
 @Controller
@@ -31,7 +31,7 @@ public class FileController {
      * 上传文件
      *
      * @return
-     * @author SL
+     * @author ZhangRui
      * @date 2018-1-30
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
@@ -55,7 +55,7 @@ public class FileController {
      * 根据文件流上传文件
      *
      * @return
-     * @author SL
+     * @author ZhangRui
      * @date 2018-1-30
      */
 //    @RequestMapping(value = "/uploadByteFile", method = RequestMethod.POST)
@@ -69,7 +69,7 @@ public class FileController {
      * 下载文件
      *
      * @return
-     * @author SL
+     * @author ZhangRui
      * @date 2018-1-30
      * CrossOrigin 使用注解方式添加跨域访问消息头
      */
@@ -105,7 +105,7 @@ public class FileController {
      * 批量下载文件
      *
      * @return
-     * @author SL
+     * @author ZhangRui
      * @date 2018-1-30
      * CrossOrigin 使用注解方式添加跨域访问消息头
      */
@@ -166,7 +166,7 @@ public class FileController {
      * 打包合同文件下载
      *
      * @return
-     * @author SL
+     * @author ZhangRui
      * @date 2018-1-30
      * CrossOrigin 使用注解方式添加跨域访问消息头
      */
@@ -242,7 +242,7 @@ public class FileController {
      * 获得文件流
      *
      * @return
-     * @author SL
+     * @author ZhangRui
      * @date 2018-1-30
      */
 //    @RequestMapping(value = "/downloadfilebuffer/{path}", method = RequestMethod.GET)// TODO 路径驼峰命名
