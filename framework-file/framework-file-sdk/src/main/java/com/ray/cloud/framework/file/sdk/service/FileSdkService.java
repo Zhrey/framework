@@ -17,5 +17,5 @@ public interface FileSdkService {
     ResultDTO uploadFile(MultipartFile multipartFile);
 
     @RequestMapping(value = "file/downloadFile", method = RequestMethod.GET)
-    ResultDTO downloadFile(@RequestParam String filePath, String fileName);
+    ResultDTO downloadFile(@RequestParam("filePath") String filePath,@RequestParam("fileName") String fileName);
 }
