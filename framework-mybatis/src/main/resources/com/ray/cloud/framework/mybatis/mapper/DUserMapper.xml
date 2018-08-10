@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ray.cloud.framework.mybatis.mapper.DUcUserMapper">
-  <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DUcUser">
+<mapper namespace="com.ray.cloud.framework.mybatis.mapper.DUserMapper">
+  <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DUser">
     <id column="id" jdbcType="CHAR" property="id" />
-    <result column="verid" jdbcType="INTEGER" property="verid" />
-    <result column="person_id" jdbcType="CHAR" property="personId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="password_length" jdbcType="INTEGER" property="passwordLength" />
     <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="data_flag" jdbcType="INTEGER" property="dataFlag" />
@@ -76,16 +73,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, verid, person_id, user_name, user_type, password, password_length, last_login_time, 
-    status, data_flag, create_time, create_user, update_time, update_user
+    id, user_name, user_type, password, last_login_time, status, data_flag, create_time, 
+    create_user, update_time, update_user
   </sql>
-  <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DUcUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from d_uc_user
+    from d_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -96,32 +93,24 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from d_uc_user
+    from d_user
     where id = #{id,jdbcType=CHAR}
   </select>
-  <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DUcUser">
-    insert into d_uc_user (id, verid, person_id, 
-      user_name, user_type, password, 
-      password_length, last_login_time, status, 
+  <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DUser">
+    insert into d_user (id, user_name, user_type, 
+      password, last_login_time, status, 
       data_flag, create_time, create_user, 
       update_time, update_user)
-    values (#{id,jdbcType=CHAR}, #{verid,jdbcType=INTEGER}, #{personId,jdbcType=CHAR}, 
-      #{userName,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, 
-      #{passwordLength,jdbcType=INTEGER}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=CHAR}, #{userName,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{dataFlag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DUcUser">
-    insert into d_uc_user
+  <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DUser">
+    insert into d_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
-      </if>
-      <if test="verid != null">
-        verid,
-      </if>
-      <if test="personId != null">
-        person_id,
       </if>
       <if test="userName != null">
         user_name,
@@ -131,9 +120,6 @@
       </if>
       <if test="password != null">
         password,
-      </if>
-      <if test="passwordLength != null">
-        password_length,
       </if>
       <if test="lastLoginTime != null">
         last_login_time,
@@ -161,12 +147,6 @@
       <if test="id != null">
         #{id,jdbcType=CHAR},
       </if>
-      <if test="verid != null">
-        #{verid,jdbcType=INTEGER},
-      </if>
-      <if test="personId != null">
-        #{personId,jdbcType=CHAR},
-      </if>
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
@@ -175,9 +155,6 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="passwordLength != null">
-        #{passwordLength,jdbcType=INTEGER},
       </if>
       <if test="lastLoginTime != null">
         #{lastLoginTime,jdbcType=TIMESTAMP},
@@ -202,23 +179,17 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DUcUserExample" resultType="java.lang.Long">
-    select count(*) from d_uc_user
+  <select id="countByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DUserExample" resultType="java.lang.Long">
+    select count(*) from d_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update d_uc_user
+    update d_user
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=CHAR},
-      </if>
-      <if test="record.verid != null">
-        verid = #{record.verid,jdbcType=INTEGER},
-      </if>
-      <if test="record.personId != null">
-        person_id = #{record.personId,jdbcType=CHAR},
       </if>
       <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
@@ -228,9 +199,6 @@
       </if>
       <if test="record.password != null">
         password = #{record.password,jdbcType=VARCHAR},
-      </if>
-      <if test="record.passwordLength != null">
-        password_length = #{record.passwordLength,jdbcType=INTEGER},
       </if>
       <if test="record.lastLoginTime != null">
         last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
@@ -259,14 +227,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update d_uc_user
+    update d_user
     set id = #{record.id,jdbcType=CHAR},
-      verid = #{record.verid,jdbcType=INTEGER},
-      person_id = #{record.personId,jdbcType=CHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_type = #{record.userType,jdbcType=INTEGER},
       password = #{record.password,jdbcType=VARCHAR},
-      password_length = #{record.passwordLength,jdbcType=INTEGER},
       last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=INTEGER},
       data_flag = #{record.dataFlag,jdbcType=INTEGER},
@@ -278,15 +243,9 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DUcUser">
-    update d_uc_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DUser">
+    update d_user
     <set>
-      <if test="verid != null">
-        verid = #{verid,jdbcType=INTEGER},
-      </if>
-      <if test="personId != null">
-        person_id = #{personId,jdbcType=CHAR},
-      </if>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
@@ -295,9 +254,6 @@
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="passwordLength != null">
-        password_length = #{passwordLength,jdbcType=INTEGER},
       </if>
       <if test="lastLoginTime != null">
         last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
@@ -323,14 +279,11 @@
     </set>
     where id = #{id,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DUcUser">
-    update d_uc_user
-    set verid = #{verid,jdbcType=INTEGER},
-      person_id = #{personId,jdbcType=CHAR},
-      user_name = #{userName,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DUser">
+    update d_user
+    set user_name = #{userName,jdbcType=VARCHAR},
       user_type = #{userType,jdbcType=INTEGER},
       password = #{password,jdbcType=VARCHAR},
-      password_length = #{passwordLength,jdbcType=INTEGER},
       last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER},
       data_flag = #{dataFlag,jdbcType=INTEGER},

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ray.cloud.framework.mybatis.mapper.DResumeMapper">
+  <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DResume">
+    <id column="ID" jdbcType="CHAR" property="id" />
+    <result column="PERSON_ID" jdbcType="CHAR" property="personId" />
+    <result column="RESUME_NAME" jdbcType="VARCHAR" property="resumeName" />
+    <result column="TAG_NAME" jdbcType="VARCHAR" property="tagName" />
+    <result column="JOB_POSITION" jdbcType="VARCHAR" property="jobPosition" />
+    <result column="WORK_YEARS" jdbcType="VARCHAR" property="workYears" />
+    <result column="CURRENT_COMPANY" jdbcType="VARCHAR" property="currentCompany" />
+    <result column="EXPECT_SALARY" jdbcType="VARCHAR" property="expectSalary" />
+    <result column="DELIVERY_DATE" jdbcType="TIMESTAMP" property="deliveryDate" />
+    <result column="DATA_FLAG" jdbcType="INTEGER" property="dataFlag" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_USER" jdbcType="CHAR" property="createUser" />
+    <result column="UPDATE_TMIE" jdbcType="TIMESTAMP" property="updateTmie" />
+    <result column="UPDATE_USER" jdbcType="CHAR" property="updateUser" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, PERSON_ID, RESUME_NAME, TAG_NAME, JOB_POSITION, WORK_YEARS, CURRENT_COMPANY, 
+    EXPECT_SALARY, DELIVERY_DATE, DATA_FLAG, CREATE_TIME, CREATE_USER, UPDATE_TMIE, UPDATE_USER
+  </sql>
+  <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DResumeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_resume
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from d_resume
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DResume">
+    insert into d_resume (ID, PERSON_ID, RESUME_NAME, 
+      TAG_NAME, JOB_POSITION, WORK_YEARS, 
+      CURRENT_COMPANY, EXPECT_SALARY, DELIVERY_DATE, 
+      DATA_FLAG, CREATE_TIME, CREATE_USER, 
+      UPDATE_TMIE, UPDATE_USER)
+    values (#{id,jdbcType=CHAR}, #{personId,jdbcType=CHAR}, #{resumeName,jdbcType=VARCHAR}, 
+      #{tagName,jdbcType=VARCHAR}, #{jobPosition,jdbcType=VARCHAR}, #{workYears,jdbcType=VARCHAR}, 
+      #{currentCompany,jdbcType=VARCHAR}, #{expectSalary,jdbcType=VARCHAR}, #{deliveryDate,jdbcType=TIMESTAMP}, 
+      #{dataFlag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR}, 
+      #{updateTmie,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DResume">
+    insert into d_resume
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="resumeName != null">
+        RESUME_NAME,
+      </if>
+      <if test="tagName != null">
+        TAG_NAME,
+      </if>
+      <if test="jobPosition != null">
+        JOB_POSITION,
+      </if>
+      <if test="workYears != null">
+        WORK_YEARS,
+      </if>
+      <if test="currentCompany != null">
+        CURRENT_COMPANY,
+      </if>
+      <if test="expectSalary != null">
+        EXPECT_SALARY,
+      </if>
+      <if test="deliveryDate != null">
+        DELIVERY_DATE,
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="updateTmie != null">
+        UPDATE_TMIE,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=CHAR},
+      </if>
+      <if test="resumeName != null">
+        #{resumeName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobPosition != null">
+        #{jobPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="workYears != null">
+        #{workYears,jdbcType=VARCHAR},
+      </if>
+      <if test="currentCompany != null">
+        #{currentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expectSalary != null">
+        #{expectSalary,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryDate != null">
+        #{deliveryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataFlag != null">
+        #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTmie != null">
+        #{updateTmie,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DResumeExample" resultType="java.lang.Long">
+    select count(*) from d_resume
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update d_resume
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.personId != null">
+        PERSON_ID = #{record.personId,jdbcType=CHAR},
+      </if>
+      <if test="record.resumeName != null">
+        RESUME_NAME = #{record.resumeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagName != null">
+        TAG_NAME = #{record.tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobPosition != null">
+        JOB_POSITION = #{record.jobPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workYears != null">
+        WORK_YEARS = #{record.workYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentCompany != null">
+        CURRENT_COMPANY = #{record.currentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expectSalary != null">
+        EXPECT_SALARY = #{record.expectSalary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliveryDate != null">
+        DELIVERY_DATE = #{record.deliveryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dataFlag != null">
+        DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTmie != null">
+        UPDATE_TMIE = #{record.updateTmie,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update d_resume
+    set ID = #{record.id,jdbcType=CHAR},
+      PERSON_ID = #{record.personId,jdbcType=CHAR},
+      RESUME_NAME = #{record.resumeName,jdbcType=VARCHAR},
+      TAG_NAME = #{record.tagName,jdbcType=VARCHAR},
+      JOB_POSITION = #{record.jobPosition,jdbcType=VARCHAR},
+      WORK_YEARS = #{record.workYears,jdbcType=VARCHAR},
+      CURRENT_COMPANY = #{record.currentCompany,jdbcType=VARCHAR},
+      EXPECT_SALARY = #{record.expectSalary,jdbcType=VARCHAR},
+      DELIVERY_DATE = #{record.deliveryDate,jdbcType=TIMESTAMP},
+      DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      UPDATE_TMIE = #{record.updateTmie,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{record.updateUser,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DResume">
+    update d_resume
+    <set>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=CHAR},
+      </if>
+      <if test="resumeName != null">
+        RESUME_NAME = #{resumeName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagName != null">
+        TAG_NAME = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobPosition != null">
+        JOB_POSITION = #{jobPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="workYears != null">
+        WORK_YEARS = #{workYears,jdbcType=VARCHAR},
+      </if>
+      <if test="currentCompany != null">
+        CURRENT_COMPANY = #{currentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expectSalary != null">
+        EXPECT_SALARY = #{expectSalary,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryDate != null">
+        DELIVERY_DATE = #{deliveryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTmie != null">
+        UPDATE_TMIE = #{updateTmie,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DResume">
+    update d_resume
+    set PERSON_ID = #{personId,jdbcType=CHAR},
+      RESUME_NAME = #{resumeName,jdbcType=VARCHAR},
+      TAG_NAME = #{tagName,jdbcType=VARCHAR},
+      JOB_POSITION = #{jobPosition,jdbcType=VARCHAR},
+      WORK_YEARS = #{workYears,jdbcType=VARCHAR},
+      CURRENT_COMPANY = #{currentCompany,jdbcType=VARCHAR},
+      EXPECT_SALARY = #{expectSalary,jdbcType=VARCHAR},
+      DELIVERY_DATE = #{deliveryDate,jdbcType=TIMESTAMP},
+      DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_USER = #{createUser,jdbcType=CHAR},
+      UPDATE_TMIE = #{updateTmie,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=CHAR}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

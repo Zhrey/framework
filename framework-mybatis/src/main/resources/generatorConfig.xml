@@ -16,9 +16,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/candidate_management?characterEncoding=utf8"
-                        userId="admin"
-                        password="admin">
+                        connectionURL="jdbc:mysql://140.143.56.43:3306/candidate_management?characterEncoding=utf8"
+                        userId="root"
+                        password="root">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -46,7 +46,55 @@
         </javaClientGenerator>
 
         <table schema="candidate_management"
-               tableName="d_uc_user"
+               tableName="d_cards"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_job_want"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_person_base"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_person_other"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_project_experience"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_resume"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_train_experience"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_user"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <table schema="candidate_management"
+               tableName="d_work_experience"
                enableDeleteByExample="false"
                enableDeleteByPrimaryKey="false">
         </table>

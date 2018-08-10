@@ -4,20 +4,14 @@ import com.ray.cloud.framework.base.entity.BasicEntity;
 
 import java.util.Date;
 
-public class DUcUser extends BasicEntity {
+public class DUser extends BasicEntity {
     private String id;
-
-    private Integer verid;
-
-    private String personId;
 
     private String userName;
 
     private Integer userType;
 
     private String password;
-
-    private Integer passwordLength;
 
     private Date lastLoginTime;
 
@@ -39,22 +33,6 @@ public class DUcUser extends BasicEntity {
 
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
-    }
-
-    public Integer getVerid() {
-        return verid;
-    }
-
-    public void setVerid(Integer verid) {
-        this.verid = verid;
-    }
-
-    public String getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(String personId) {
-        this.personId = personId == null ? null : personId.trim();
     }
 
     public String getUserName() {
@@ -79,14 +57,6 @@ public class DUcUser extends BasicEntity {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public Integer getPasswordLength() {
-        return passwordLength;
-    }
-
-    public void setPasswordLength(Integer passwordLength) {
-        this.passwordLength = passwordLength;
     }
 
     public Date getLastLoginTime() {

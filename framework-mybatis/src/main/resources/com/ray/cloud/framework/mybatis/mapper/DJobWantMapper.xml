@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ray.cloud.framework.mybatis.mapper.DJobWantMapper">
+  <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DJobWant">
+    <id column="ID" jdbcType="CHAR" property="id" />
+    <result column="PERSON_ID" jdbcType="CHAR" property="personId" />
+    <result column="DESIRED_NATRUE" jdbcType="VARCHAR" property="desiredNatrue" />
+    <result column="DESIRED_POSITION" jdbcType="VARCHAR" property="desiredPosition" />
+    <result column="DESIRED_INDUSTRY" jdbcType="VARCHAR" property="desiredIndustry" />
+    <result column="DESIRED_ADDRESS" jdbcType="VARCHAR" property="desiredAddress" />
+    <result column="CURRENT_SITUATION" jdbcType="VARCHAR" property="currentSituation" />
+    <result column="DATA_FLAG" jdbcType="INTEGER" property="dataFlag" />
+    <result column="CREATE_USER" jdbcType="CHAR" property="createUser" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_USER" jdbcType="CHAR" property="updateUser" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, PERSON_ID, DESIRED_NATRUE, DESIRED_POSITION, DESIRED_INDUSTRY, DESIRED_ADDRESS, 
+    CURRENT_SITUATION, DATA_FLAG, CREATE_USER, CREATE_TIME, UPDATE_USER, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DJobWantExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_job_want
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from d_job_want
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DJobWant">
+    insert into d_job_want (ID, PERSON_ID, DESIRED_NATRUE, 
+      DESIRED_POSITION, DESIRED_INDUSTRY, DESIRED_ADDRESS, 
+      CURRENT_SITUATION, DATA_FLAG, CREATE_USER, 
+      CREATE_TIME, UPDATE_USER, UPDATE_TIME
+      )
+    values (#{id,jdbcType=CHAR}, #{personId,jdbcType=CHAR}, #{desiredNatrue,jdbcType=VARCHAR}, 
+      #{desiredPosition,jdbcType=VARCHAR}, #{desiredIndustry,jdbcType=VARCHAR}, #{desiredAddress,jdbcType=VARCHAR}, 
+      #{currentSituation,jdbcType=VARCHAR}, #{dataFlag,jdbcType=INTEGER}, #{createUser,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DJobWant">
+    insert into d_job_want
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="desiredNatrue != null">
+        DESIRED_NATRUE,
+      </if>
+      <if test="desiredPosition != null">
+        DESIRED_POSITION,
+      </if>
+      <if test="desiredIndustry != null">
+        DESIRED_INDUSTRY,
+      </if>
+      <if test="desiredAddress != null">
+        DESIRED_ADDRESS,
+      </if>
+      <if test="currentSituation != null">
+        CURRENT_SITUATION,
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=CHAR},
+      </if>
+      <if test="desiredNatrue != null">
+        #{desiredNatrue,jdbcType=VARCHAR},
+      </if>
+      <if test="desiredPosition != null">
+        #{desiredPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="desiredIndustry != null">
+        #{desiredIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="desiredAddress != null">
+        #{desiredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="currentSituation != null">
+        #{currentSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="dataFlag != null">
+        #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DJobWantExample" resultType="java.lang.Long">
+    select count(*) from d_job_want
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update d_job_want
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.personId != null">
+        PERSON_ID = #{record.personId,jdbcType=CHAR},
+      </if>
+      <if test="record.desiredNatrue != null">
+        DESIRED_NATRUE = #{record.desiredNatrue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.desiredPosition != null">
+        DESIRED_POSITION = #{record.desiredPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.desiredIndustry != null">
+        DESIRED_INDUSTRY = #{record.desiredIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.desiredAddress != null">
+        DESIRED_ADDRESS = #{record.desiredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentSituation != null">
+        CURRENT_SITUATION = #{record.currentSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dataFlag != null">
+        DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update d_job_want
+    set ID = #{record.id,jdbcType=CHAR},
+      PERSON_ID = #{record.personId,jdbcType=CHAR},
+      DESIRED_NATRUE = #{record.desiredNatrue,jdbcType=VARCHAR},
+      DESIRED_POSITION = #{record.desiredPosition,jdbcType=VARCHAR},
+      DESIRED_INDUSTRY = #{record.desiredIndustry,jdbcType=VARCHAR},
+      DESIRED_ADDRESS = #{record.desiredAddress,jdbcType=VARCHAR},
+      CURRENT_SITUATION = #{record.currentSituation,jdbcType=VARCHAR},
+      DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DJobWant">
+    update d_job_want
+    <set>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=CHAR},
+      </if>
+      <if test="desiredNatrue != null">
+        DESIRED_NATRUE = #{desiredNatrue,jdbcType=VARCHAR},
+      </if>
+      <if test="desiredPosition != null">
+        DESIRED_POSITION = #{desiredPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="desiredIndustry != null">
+        DESIRED_INDUSTRY = #{desiredIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="desiredAddress != null">
+        DESIRED_ADDRESS = #{desiredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="currentSituation != null">
+        CURRENT_SITUATION = #{currentSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DJobWant">
+    update d_job_want
+    set PERSON_ID = #{personId,jdbcType=CHAR},
+      DESIRED_NATRUE = #{desiredNatrue,jdbcType=VARCHAR},
+      DESIRED_POSITION = #{desiredPosition,jdbcType=VARCHAR},
+      DESIRED_INDUSTRY = #{desiredIndustry,jdbcType=VARCHAR},
+      DESIRED_ADDRESS = #{desiredAddress,jdbcType=VARCHAR},
+      CURRENT_SITUATION = #{currentSituation,jdbcType=VARCHAR},
+      DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      CREATE_USER = #{createUser,jdbcType=CHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
