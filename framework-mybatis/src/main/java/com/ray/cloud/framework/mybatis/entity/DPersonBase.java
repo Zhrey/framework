@@ -9,7 +9,7 @@ public class DPersonBase extends BasicEntity {
 
     private String name;
 
-    private Integer sex;
+    private String sex;
 
     private Date birthday;
 
@@ -17,7 +17,7 @@ public class DPersonBase extends BasicEntity {
 
     private String politicalStatus;
 
-    private Integer identityType;
+    private String identityType;
 
     private String identityId;
 
@@ -35,7 +35,7 @@ public class DPersonBase extends BasicEntity {
 
     private String qq;
 
-    private Integer maxEducation;
+    private String maxEducation;
 
     private String major;
 
@@ -77,12 +77,12 @@ public class DPersonBase extends BasicEntity {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
     public Date getBirthday() {
@@ -109,12 +109,12 @@ public class DPersonBase extends BasicEntity {
         this.politicalStatus = politicalStatus == null ? null : politicalStatus.trim();
     }
 
-    public Integer getIdentityType() {
+    public String getIdentityType() {
         return identityType;
     }
 
-    public void setIdentityType(Integer identityType) {
-        this.identityType = identityType;
+    public void setIdentityType(String identityType) {
+        this.identityType = identityType == null ? null : identityType.trim();
     }
 
     public String getIdentityId() {
@@ -181,12 +181,12 @@ public class DPersonBase extends BasicEntity {
         this.qq = qq == null ? null : qq.trim();
     }
 
-    public Integer getMaxEducation() {
+    public String getMaxEducation() {
         return maxEducation;
     }
 
-    public void setMaxEducation(Integer maxEducation) {
-        this.maxEducation = maxEducation;
+    public void setMaxEducation(String maxEducation) {
+        this.maxEducation = maxEducation == null ? null : maxEducation.trim();
     }
 
     public String getMajor() {

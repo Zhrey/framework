@@ -45,17 +45,17 @@
                       value="BaseMapper"/>
         </javaClientGenerator>
 
-        <table schema="candidate_management"
-               tableName="d_cards"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_cards"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
-        <table schema="candidate_management"
-               tableName="d_job_want"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_job_want"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
         <table schema="candidate_management"
                tableName="d_person_base"
@@ -63,41 +63,41 @@
                enableDeleteByPrimaryKey="false">
         </table>
 
-        <table schema="candidate_management"
-               tableName="d_person_other"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_person_other"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
-        <table schema="candidate_management"
-               tableName="d_project_experience"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_project_experience"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
-        <table schema="candidate_management"
-               tableName="d_resume"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_resume"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
-        <table schema="candidate_management"
-               tableName="d_train_experience"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_train_experience"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
-        <table schema="candidate_management"
-               tableName="d_user"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_user"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
-        <table schema="candidate_management"
-               tableName="d_work_experience"
-               enableDeleteByExample="false"
-               enableDeleteByPrimaryKey="false">
-        </table>
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_work_experience"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

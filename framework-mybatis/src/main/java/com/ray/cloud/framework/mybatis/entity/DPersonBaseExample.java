@@ -18,20 +18,20 @@ public class DPersonBaseExample extends BaseExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -284,52 +284,62 @@ public class DPersonBaseExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andSexEqualTo(Integer value) {
+        public Criteria andSexEqualTo(String value) {
             addCriterion("sex =", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotEqualTo(Integer value) {
+        public Criteria andSexNotEqualTo(String value) {
             addCriterion("sex <>", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexGreaterThan(Integer value) {
+        public Criteria andSexGreaterThan(String value) {
             addCriterion("sex >", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSexGreaterThanOrEqualTo(String value) {
             addCriterion("sex >=", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexLessThan(Integer value) {
+        public Criteria andSexLessThan(String value) {
             addCriterion("sex <", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexLessThanOrEqualTo(Integer value) {
+        public Criteria andSexLessThanOrEqualTo(String value) {
             addCriterion("sex <=", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexIn(List<Integer> values) {
+        public Criteria andSexLike(String value) {
+            addCriterion("sex like", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexNotLike(String value) {
+            addCriterion("sex not like", value, "sex");
+            return (Criteria) this;
+        }
+
+        public Criteria andSexIn(List<String> values) {
             addCriterion("sex in", values, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotIn(List<Integer> values) {
+        public Criteria andSexNotIn(List<String> values) {
             addCriterion("sex not in", values, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexBetween(Integer value1, Integer value2) {
+        public Criteria andSexBetween(String value1, String value2) {
             addCriterion("sex between", value1, value2, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotBetween(Integer value1, Integer value2) {
+        public Criteria andSexNotBetween(String value1, String value2) {
             addCriterion("sex not between", value1, value2, "sex");
             return (Criteria) this;
         }
@@ -544,52 +554,62 @@ public class DPersonBaseExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeEqualTo(Integer value) {
+        public Criteria andIdentityTypeEqualTo(String value) {
             addCriterion("identity_type =", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeNotEqualTo(Integer value) {
+        public Criteria andIdentityTypeNotEqualTo(String value) {
             addCriterion("identity_type <>", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeGreaterThan(Integer value) {
+        public Criteria andIdentityTypeGreaterThan(String value) {
             addCriterion("identity_type >", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIdentityTypeGreaterThanOrEqualTo(String value) {
             addCriterion("identity_type >=", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeLessThan(Integer value) {
+        public Criteria andIdentityTypeLessThan(String value) {
             addCriterion("identity_type <", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeLessThanOrEqualTo(Integer value) {
+        public Criteria andIdentityTypeLessThanOrEqualTo(String value) {
             addCriterion("identity_type <=", value, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeIn(List<Integer> values) {
+        public Criteria andIdentityTypeLike(String value) {
+            addCriterion("identity_type like", value, "identityType");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdentityTypeNotLike(String value) {
+            addCriterion("identity_type not like", value, "identityType");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdentityTypeIn(List<String> values) {
             addCriterion("identity_type in", values, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeNotIn(List<Integer> values) {
+        public Criteria andIdentityTypeNotIn(List<String> values) {
             addCriterion("identity_type not in", values, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeBetween(Integer value1, Integer value2) {
+        public Criteria andIdentityTypeBetween(String value1, String value2) {
             addCriterion("identity_type between", value1, value2, "identityType");
             return (Criteria) this;
         }
 
-        public Criteria andIdentityTypeNotBetween(Integer value1, Integer value2) {
+        public Criteria andIdentityTypeNotBetween(String value1, String value2) {
             addCriterion("identity_type not between", value1, value2, "identityType");
             return (Criteria) this;
         }
@@ -1164,52 +1184,62 @@ public class DPersonBaseExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationEqualTo(Integer value) {
+        public Criteria andMaxEducationEqualTo(String value) {
             addCriterion("max_education =", value, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationNotEqualTo(Integer value) {
+        public Criteria andMaxEducationNotEqualTo(String value) {
             addCriterion("max_education <>", value, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationGreaterThan(Integer value) {
+        public Criteria andMaxEducationGreaterThan(String value) {
             addCriterion("max_education >", value, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationGreaterThanOrEqualTo(Integer value) {
+        public Criteria andMaxEducationGreaterThanOrEqualTo(String value) {
             addCriterion("max_education >=", value, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationLessThan(Integer value) {
+        public Criteria andMaxEducationLessThan(String value) {
             addCriterion("max_education <", value, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationLessThanOrEqualTo(Integer value) {
+        public Criteria andMaxEducationLessThanOrEqualTo(String value) {
             addCriterion("max_education <=", value, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationIn(List<Integer> values) {
+        public Criteria andMaxEducationLike(String value) {
+            addCriterion("max_education like", value, "maxEducation");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxEducationNotLike(String value) {
+            addCriterion("max_education not like", value, "maxEducation");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxEducationIn(List<String> values) {
             addCriterion("max_education in", values, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationNotIn(List<Integer> values) {
+        public Criteria andMaxEducationNotIn(List<String> values) {
             addCriterion("max_education not in", values, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationBetween(Integer value1, Integer value2) {
+        public Criteria andMaxEducationBetween(String value1, String value2) {
             addCriterion("max_education between", value1, value2, "maxEducation");
             return (Criteria) this;
         }
 
-        public Criteria andMaxEducationNotBetween(Integer value1, Integer value2) {
+        public Criteria andMaxEducationNotBetween(String value1, String value2) {
             addCriterion("max_education not between", value1, value2, "maxEducation");
             return (Criteria) this;
         }
@@ -2049,6 +2079,38 @@ public class DPersonBaseExample extends BaseExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -2083,38 +2145,6 @@ public class DPersonBaseExample extends BaseExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

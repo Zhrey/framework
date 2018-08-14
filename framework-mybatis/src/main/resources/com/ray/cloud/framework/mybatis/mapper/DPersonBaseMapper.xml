@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DPersonBase">
     <id column="id" jdbcType="CHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="birthday" jdbcType="DATE" property="birthday" />
     <result column="marital_status" jdbcType="VARCHAR" property="maritalStatus" />
     <result column="political_status" jdbcType="VARCHAR" property="politicalStatus" />
-    <result column="identity_type" jdbcType="INTEGER" property="identityType" />
+    <result column="identity_type" jdbcType="VARCHAR" property="identityType" />
     <result column="identity_id" jdbcType="VARCHAR" property="identityId" />
     <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
@@ -17,7 +17,7 @@
     <result column="wechat" jdbcType="VARCHAR" property="wechat" />
     <result column="postal_code" jdbcType="VARCHAR" property="postalCode" />
     <result column="QQ" jdbcType="VARCHAR" property="qq" />
-    <result column="max_education" jdbcType="INTEGER" property="maxEducation" />
+    <result column="max_education" jdbcType="VARCHAR" property="maxEducation" />
     <result column="major" jdbcType="VARCHAR" property="major" />
     <result column="school" jdbcType="VARCHAR" property="school" />
     <result column="hukou" jdbcType="VARCHAR" property="hukou" />
@@ -126,11 +126,11 @@
       working_time, data_flag, create_time, 
       create_user, update_time, update_user
       )
-    values (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, 
-      #{maritalStatus,jdbcType=VARCHAR}, #{politicalStatus,jdbcType=VARCHAR}, #{identityType,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
+      #{maritalStatus,jdbcType=VARCHAR}, #{politicalStatus,jdbcType=VARCHAR}, #{identityType,jdbcType=VARCHAR}, 
       #{identityId,jdbcType=VARCHAR}, #{photoUrl,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
       #{mobile,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
-      #{postalCode,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{maxEducation,jdbcType=INTEGER}, 
+      #{postalCode,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{maxEducation,jdbcType=VARCHAR}, 
       #{major,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{hukou,jdbcType=VARCHAR}, 
       #{postalAddress,jdbcType=VARCHAR}, #{currentAddress,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
       #{workingTime,jdbcType=VARCHAR}, #{dataFlag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
@@ -233,7 +233,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
-        #{sex,jdbcType=INTEGER},
+        #{sex,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null">
         #{birthday,jdbcType=DATE},
@@ -245,7 +245,7 @@
         #{politicalStatus,jdbcType=VARCHAR},
       </if>
       <if test="identityType != null">
-        #{identityType,jdbcType=INTEGER},
+        #{identityType,jdbcType=VARCHAR},
       </if>
       <if test="identityId != null">
         #{identityId,jdbcType=VARCHAR},
@@ -272,7 +272,7 @@
         #{qq,jdbcType=VARCHAR},
       </if>
       <if test="maxEducation != null">
-        #{maxEducation,jdbcType=INTEGER},
+        #{maxEducation,jdbcType=VARCHAR},
       </if>
       <if test="major != null">
         #{major,jdbcType=VARCHAR},
@@ -328,7 +328,7 @@
         name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null">
-        sex = #{record.sex,jdbcType=INTEGER},
+        sex = #{record.sex,jdbcType=VARCHAR},
       </if>
       <if test="record.birthday != null">
         birthday = #{record.birthday,jdbcType=DATE},
@@ -340,7 +340,7 @@
         political_status = #{record.politicalStatus,jdbcType=VARCHAR},
       </if>
       <if test="record.identityType != null">
-        identity_type = #{record.identityType,jdbcType=INTEGER},
+        identity_type = #{record.identityType,jdbcType=VARCHAR},
       </if>
       <if test="record.identityId != null">
         identity_id = #{record.identityId,jdbcType=VARCHAR},
@@ -367,7 +367,7 @@
         QQ = #{record.qq,jdbcType=VARCHAR},
       </if>
       <if test="record.maxEducation != null">
-        max_education = #{record.maxEducation,jdbcType=INTEGER},
+        max_education = #{record.maxEducation,jdbcType=VARCHAR},
       </if>
       <if test="record.major != null">
         major = #{record.major,jdbcType=VARCHAR},
@@ -414,11 +414,11 @@
     update d_person_base
     set id = #{record.id,jdbcType=CHAR},
       name = #{record.name,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=INTEGER},
+      sex = #{record.sex,jdbcType=VARCHAR},
       birthday = #{record.birthday,jdbcType=DATE},
       marital_status = #{record.maritalStatus,jdbcType=VARCHAR},
       political_status = #{record.politicalStatus,jdbcType=VARCHAR},
-      identity_type = #{record.identityType,jdbcType=INTEGER},
+      identity_type = #{record.identityType,jdbcType=VARCHAR},
       identity_id = #{record.identityId,jdbcType=VARCHAR},
       photo_url = #{record.photoUrl,jdbcType=VARCHAR},
       tel = #{record.tel,jdbcType=VARCHAR},
@@ -427,7 +427,7 @@
       wechat = #{record.wechat,jdbcType=VARCHAR},
       postal_code = #{record.postalCode,jdbcType=VARCHAR},
       QQ = #{record.qq,jdbcType=VARCHAR},
-      max_education = #{record.maxEducation,jdbcType=INTEGER},
+      max_education = #{record.maxEducation,jdbcType=VARCHAR},
       major = #{record.major,jdbcType=VARCHAR},
       school = #{record.school,jdbcType=VARCHAR},
       hukou = #{record.hukou,jdbcType=VARCHAR},
@@ -451,7 +451,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
-        sex = #{sex,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null">
         birthday = #{birthday,jdbcType=DATE},
@@ -463,7 +463,7 @@
         political_status = #{politicalStatus,jdbcType=VARCHAR},
       </if>
       <if test="identityType != null">
-        identity_type = #{identityType,jdbcType=INTEGER},
+        identity_type = #{identityType,jdbcType=VARCHAR},
       </if>
       <if test="identityId != null">
         identity_id = #{identityId,jdbcType=VARCHAR},
@@ -490,7 +490,7 @@
         QQ = #{qq,jdbcType=VARCHAR},
       </if>
       <if test="maxEducation != null">
-        max_education = #{maxEducation,jdbcType=INTEGER},
+        max_education = #{maxEducation,jdbcType=VARCHAR},
       </if>
       <if test="major != null">
         major = #{major,jdbcType=VARCHAR},
@@ -534,11 +534,11 @@
   <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonBase">
     update d_person_base
     set name = #{name,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=DATE},
       marital_status = #{maritalStatus,jdbcType=VARCHAR},
       political_status = #{politicalStatus,jdbcType=VARCHAR},
-      identity_type = #{identityType,jdbcType=INTEGER},
+      identity_type = #{identityType,jdbcType=VARCHAR},
       identity_id = #{identityId,jdbcType=VARCHAR},
       photo_url = #{photoUrl,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR},
@@ -547,7 +547,7 @@
       wechat = #{wechat,jdbcType=VARCHAR},
       postal_code = #{postalCode,jdbcType=VARCHAR},
       QQ = #{qq,jdbcType=VARCHAR},
-      max_education = #{maxEducation,jdbcType=INTEGER},
+      max_education = #{maxEducation,jdbcType=VARCHAR},
       major = #{major,jdbcType=VARCHAR},
       school = #{school,jdbcType=VARCHAR},
       hukou = #{hukou,jdbcType=VARCHAR},
