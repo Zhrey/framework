@@ -50,10 +50,10 @@ public abstract class AbstractConvertor<DTO extends AbstractDTO, ENTITY> {
 
     public ResultDTO<PageResultDTO<DTO>> toPageResultDTO(PageResultDTO<ENTITY> pageResultEntity) {
         if (null != pageResultEntity) {
-            return ResultDTO.success(PageResultDTO.result(
-                    pageResultEntity.getCount(),
-                    toListDTO(pageResultEntity.getResult())));
+            return ResultDTO.success(PageResultDTO.rows(
+                    pageResultEntity.getTotal(),
+                    toListDTO(pageResultEntity.getRows())));
         }
-        return ResultDTO.success(PageResultDTO.result(0, null));
+        return ResultDTO.success(PageResultDTO.rows(0, null));
     }
 }

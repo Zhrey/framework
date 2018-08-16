@@ -1,6 +1,6 @@
 package com.ray.cloud.framework.base.entity;
 
-import com.ray.cloud.framework.base.Enum.DeleteFlagEnum;
+import com.ray.cloud.framework.base.Enum.DataFlagEnum;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -22,7 +22,7 @@ public abstract class BasicEntity implements Serializable {
 
     private Date updateTime;
 
-    private Integer deleteFlag;
+    private Integer dataFlag;
 
     public String getId() {
         return id;
@@ -64,21 +64,20 @@ public abstract class BasicEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getDeleteFlag() {
-        return deleteFlag;
+    public Integer getDataFlag() {
+        return dataFlag;
     }
 
-    public void setDeleteFlag(Integer deleteFlag) {
-        this.deleteFlag = deleteFlag;
+    public void setDataFlag(Integer dataFlag) {
+        this.dataFlag = dataFlag;
     }
-
 
     public boolean preInsert() {
         if (preUpdate()) {
             this.setCreateUser(this.getUpdateUser());
             this.setCreateTime(this.getUpdateTime());
             this.setId(UUID.randomUUID().toString().replace("-", StringUtils.EMPTY));
-            this.setDeleteFlag(DeleteFlagEnum.NON_DELETE.ordinal());
+            this.setDataFlag(DataFlagEnum.NON_DELETE.ordinal());
             return true;
         }
         return false;
@@ -100,13 +99,13 @@ public abstract class BasicEntity implements Serializable {
 
     public boolean remove() {
         if (preUpdate()) {
-            this.setDeleteFlag(DeleteFlagEnum.DELETE.ordinal());
+            this.setDataFlag(DataFlagEnum.DELETE.ordinal());
             return true;
         }
         return false;
     }
 
     public boolean everRemoved() {
-        return deleteFlag == DeleteFlagEnum.DELETE.ordinal();
+        return dataFlag == DataFlagEnum.DELETE.ordinal();
     }
 }

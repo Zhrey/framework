@@ -6,7 +6,7 @@ package com.ray.cloud.framework.base.Enum;
  * @date: Created in 14:54 2018/3/28
  * @Modified By:
  */
-public enum  DeleteFlagEnum {
+public enum DataFlagEnum {
 
     NON_DELETE("非删除"), DELETE("删除");
 
@@ -14,7 +14,7 @@ public enum  DeleteFlagEnum {
     private String name;
 
     // 构造方法
-    DeleteFlagEnum(String name) {
+    DataFlagEnum(String name) {
         this.name = name;
     }
 

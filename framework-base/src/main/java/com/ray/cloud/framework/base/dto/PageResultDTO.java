@@ -9,27 +9,27 @@ package com.ray.cloud.framework.base.dto;
 import java.util.List;
 
 public class PageResultDTO<ENTITY> {
-    private long count;
-    private List<ENTITY> result;
+    private long total;
+    private List<ENTITY> rows;
 
     private PageResultDTO() {
     }
 
-    private PageResultDTO(long count, List<ENTITY> result) {
-        this.count = count;
-        this.result = result;
+    private PageResultDTO(long total, List<ENTITY> rows) {
+        this.total = total;
+        this.rows = rows;
     }
 
-    public static <ENTITY> PageResultDTO result(long count, List<ENTITY> result) {
-        return new PageResultDTO(count, result);
+    public static <ENTITY> PageResultDTO rows(long total, List<ENTITY> rows) {
+        return new PageResultDTO(total, rows);
     }
 
-    public long getCount() {
-        return this.count;
+    public long getTotal() {
+        return this.total;
     }
 
-    public List<ENTITY> getResult() {
-        return this.result;
+    public List<ENTITY> getRows() {
+        return this.rows;
     }
 }
 

@@ -104,9 +104,9 @@ public abstract class BaseService<ENTITY extends BasicEntity, EXAMPLE extends Ba
                                                                     Integer pageSize) {
         long count = mapper.countByExample(example);
         if (0 == count) {
-            return ResultDTO.success(PageResultDTO.result(0, null));
+            return ResultDTO.success(PageResultDTO.rows(0, null));
         }
         example.setOrderBy(MysqlUtils.pageMysql(count, example.getOrderBy(), pageNo, pageSize));
-        return ResultDTO.success(PageResultDTO.result(count, mapper.selectByExample(example)));
+        return ResultDTO.success(PageResultDTO.rows(count, mapper.selectByExample(example)));
     }
 }
