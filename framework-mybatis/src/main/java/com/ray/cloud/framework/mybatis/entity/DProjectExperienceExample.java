@@ -17,20 +17,20 @@ public class DProjectExperienceExample extends BaseExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -387,6 +387,76 @@ public class DProjectExperienceExample extends BaseExample {
             return (Criteria) this;
         }
 
+        public Criteria andDutyContentIsNull() {
+            addCriterion("DUTY_CONTENT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentIsNotNull() {
+            addCriterion("DUTY_CONTENT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentEqualTo(String value) {
+            addCriterion("DUTY_CONTENT =", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentNotEqualTo(String value) {
+            addCriterion("DUTY_CONTENT <>", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentGreaterThan(String value) {
+            addCriterion("DUTY_CONTENT >", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentGreaterThanOrEqualTo(String value) {
+            addCriterion("DUTY_CONTENT >=", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentLessThan(String value) {
+            addCriterion("DUTY_CONTENT <", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentLessThanOrEqualTo(String value) {
+            addCriterion("DUTY_CONTENT <=", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentLike(String value) {
+            addCriterion("DUTY_CONTENT like", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentNotLike(String value) {
+            addCriterion("DUTY_CONTENT not like", value, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentIn(List<String> values) {
+            addCriterion("DUTY_CONTENT in", values, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentNotIn(List<String> values) {
+            addCriterion("DUTY_CONTENT not in", values, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentBetween(String value1, String value2) {
+            addCriterion("DUTY_CONTENT between", value1, value2, "dutyContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andDutyContentNotBetween(String value1, String value2) {
+            addCriterion("DUTY_CONTENT not between", value1, value2, "dutyContent");
+            return (Criteria) this;
+        }
+
         public Criteria andDataFlagIsNull() {
             addCriterion("DATA_FLAG is null");
             return (Criteria) this;
@@ -732,6 +802,38 @@ public class DProjectExperienceExample extends BaseExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -766,38 +868,6 @@ public class DProjectExperienceExample extends BaseExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

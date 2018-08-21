@@ -13,6 +13,8 @@ public class DProjectExperience extends BasicEntity {
 
     private String content;
 
+    private String dutyContent;
+
     private Integer dataFlag;
 
     private String createUser;
@@ -53,6 +55,14 @@ public class DProjectExperience extends BasicEntity {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getDutyContent() {
+        return dutyContent;
+    }
+
+    public void setDutyContent(String dutyContent) {
+        this.dutyContent = dutyContent == null ? null : dutyContent.trim();
     }
 
     public Integer getDataFlag() {

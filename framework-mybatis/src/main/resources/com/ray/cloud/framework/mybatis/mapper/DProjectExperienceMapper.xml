@@ -6,6 +6,7 @@
     <result column="PERSON_ID" jdbcType="CHAR" property="personId" />
     <result column="PROJECT_NAME" jdbcType="VARCHAR" property="projectName" />
     <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="DUTY_CONTENT" jdbcType="VARCHAR" property="dutyContent" />
     <result column="DATA_FLAG" jdbcType="INTEGER" property="dataFlag" />
     <result column="CREATE_USER" jdbcType="CHAR" property="createUser" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
@@ -71,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, PERSON_ID, PROJECT_NAME, CONTENT, DATA_FLAG, CREATE_USER, CREATE_TIME, UPDATE_USER, 
-    UPDATE_TIME
+    ID, PERSON_ID, PROJECT_NAME, CONTENT, DUTY_CONTENT, DATA_FLAG, CREATE_USER, CREATE_TIME, 
+    UPDATE_USER, UPDATE_TIME
   </sql>
   <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DProjectExperienceExample" resultMap="BaseResultMap">
     select
@@ -96,13 +97,13 @@
   </select>
   <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DProjectExperience">
     insert into d_project_experience (ID, PERSON_ID, PROJECT_NAME, 
-      CONTENT, DATA_FLAG, CREATE_USER, 
-      CREATE_TIME, UPDATE_USER, UPDATE_TIME
-      )
+      CONTENT, DUTY_CONTENT, DATA_FLAG, 
+      CREATE_USER, CREATE_TIME, UPDATE_USER, 
+      UPDATE_TIME)
     values (#{id,jdbcType=CHAR}, #{personId,jdbcType=CHAR}, #{projectName,jdbcType=VARCHAR}, 
-      #{content,jdbcType=VARCHAR}, #{dataFlag,jdbcType=INTEGER}, #{createUser,jdbcType=CHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{content,jdbcType=VARCHAR}, #{dutyContent,jdbcType=VARCHAR}, #{dataFlag,jdbcType=INTEGER}, 
+      #{createUser,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=CHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DProjectExperience">
     insert into d_project_experience
@@ -118,6 +119,9 @@
       </if>
       <if test="content != null">
         CONTENT,
+      </if>
+      <if test="dutyContent != null">
+        DUTY_CONTENT,
       </if>
       <if test="dataFlag != null">
         DATA_FLAG,
@@ -147,6 +151,9 @@
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyContent != null">
+        #{dutyContent,jdbcType=VARCHAR},
       </if>
       <if test="dataFlag != null">
         #{dataFlag,jdbcType=INTEGER},
@@ -186,6 +193,9 @@
       <if test="record.content != null">
         CONTENT = #{record.content,jdbcType=VARCHAR},
       </if>
+      <if test="record.dutyContent != null">
+        DUTY_CONTENT = #{record.dutyContent,jdbcType=VARCHAR},
+      </if>
       <if test="record.dataFlag != null">
         DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
       </if>
@@ -212,6 +222,7 @@
       PERSON_ID = #{record.personId,jdbcType=CHAR},
       PROJECT_NAME = #{record.projectName,jdbcType=VARCHAR},
       CONTENT = #{record.content,jdbcType=VARCHAR},
+      DUTY_CONTENT = #{record.dutyContent,jdbcType=VARCHAR},
       DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
       CREATE_USER = #{record.createUser,jdbcType=CHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
@@ -232,6 +243,9 @@
       </if>
       <if test="content != null">
         CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyContent != null">
+        DUTY_CONTENT = #{dutyContent,jdbcType=VARCHAR},
       </if>
       <if test="dataFlag != null">
         DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
@@ -256,6 +270,7 @@
     set PERSON_ID = #{personId,jdbcType=CHAR},
       PROJECT_NAME = #{projectName,jdbcType=VARCHAR},
       CONTENT = #{content,jdbcType=VARCHAR},
+      DUTY_CONTENT = #{dutyContent,jdbcType=VARCHAR},
       DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
       CREATE_USER = #{createUser,jdbcType=CHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
