@@ -7,9 +7,7 @@ import java.util.Date;
 public class DPersonOther extends BasicEntity {
     private String id;
 
-    private String trainId;
-
-    private String cardId;
+    private String personId;
 
     private String content;
 
@@ -43,20 +41,12 @@ public class DPersonOther extends BasicEntity {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getTrainId() {
-        return trainId;
+    public String getPersonId() {
+        return personId;
     }
 
-    public void setTrainId(String trainId) {
-        this.trainId = trainId == null ? null : trainId.trim();
-    }
-
-    public String getCardId() {
-        return cardId;
-    }
-
-    public void setCardId(String cardId) {
-        this.cardId = cardId == null ? null : cardId.trim();
+    public void setPersonId(String personId) {
+        this.personId = personId == null ? null : personId.trim();
     }
 
     public String getContent() {

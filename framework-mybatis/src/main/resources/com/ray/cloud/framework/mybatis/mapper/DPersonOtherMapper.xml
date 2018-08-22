@@ -3,8 +3,7 @@
 <mapper namespace="com.ray.cloud.framework.mybatis.mapper.DPersonOtherMapper">
   <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DPersonOther">
     <id column="ID" jdbcType="CHAR" property="id" />
-    <result column="TRAIN_ID" jdbcType="CHAR" property="trainId" />
-    <result column="CARD_ID" jdbcType="CHAR" property="cardId" />
+    <result column="PERSON_ID" jdbcType="CHAR" property="personId" />
     <result column="CONTENT" jdbcType="VARCHAR" property="content" />
     <result column="EDUCATION_BACKGROUND" jdbcType="VARCHAR" property="educationBackground" />
     <result column="LEARN_SITUATION" jdbcType="VARCHAR" property="learnSituation" />
@@ -77,7 +76,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, TRAIN_ID, CARD_ID, CONTENT, EDUCATION_BACKGROUND, LEARN_SITUATION, SOCIAL_SITUATION, 
+    ID, PERSON_ID, CONTENT, EDUCATION_BACKGROUND, LEARN_SITUATION, SOCIAL_SITUATION, 
     LANGUAGE_SITUATION, PROFESSIONAL_SKILLS, HOBBY, DATA_FLAG, CREATE_USER, CREATE_TIME, 
     UPDATE_USER, UPDATE_TIEM
   </sql>
@@ -102,13 +101,13 @@
     where ID = #{id,jdbcType=CHAR}
   </select>
   <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonOther">
-    insert into d_person_other (ID, TRAIN_ID, CARD_ID, CONTENT, 
+    insert into d_person_other (ID, PERSON_ID, CONTENT, 
       EDUCATION_BACKGROUND, LEARN_SITUATION, SOCIAL_SITUATION, 
       LANGUAGE_SITUATION, PROFESSIONAL_SKILLS, 
       HOBBY, DATA_FLAG, CREATE_USER, 
       CREATE_TIME, UPDATE_USER, UPDATE_TIEM
       )
-    values (#{id,jdbcType=CHAR}, #{trainId,jdbcType=CHAR}, #{cardId,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=CHAR}, #{personId,jdbcType=CHAR}, #{content,jdbcType=VARCHAR}, 
       #{educationBackground,jdbcType=VARCHAR}, #{learnSituation,jdbcType=VARCHAR}, #{socialSituation,jdbcType=VARCHAR}, 
       #{languageSituation,jdbcType=VARCHAR}, #{professionalSkills,jdbcType=VARCHAR}, 
       #{hobby,jdbcType=VARCHAR}, #{dataFlag,jdbcType=INTEGER}, #{createUser,jdbcType=CHAR}, 
@@ -121,11 +120,8 @@
       <if test="id != null">
         ID,
       </if>
-      <if test="trainId != null">
-        TRAIN_ID,
-      </if>
-      <if test="cardId != null">
-        CARD_ID,
+      <if test="personId != null">
+        PERSON_ID,
       </if>
       <if test="content != null">
         CONTENT,
@@ -168,11 +164,8 @@
       <if test="id != null">
         #{id,jdbcType=CHAR},
       </if>
-      <if test="trainId != null">
-        #{trainId,jdbcType=CHAR},
-      </if>
-      <if test="cardId != null">
-        #{cardId,jdbcType=CHAR},
+      <if test="personId != null">
+        #{personId,jdbcType=CHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -224,11 +217,8 @@
       <if test="record.id != null">
         ID = #{record.id,jdbcType=CHAR},
       </if>
-      <if test="record.trainId != null">
-        TRAIN_ID = #{record.trainId,jdbcType=CHAR},
-      </if>
-      <if test="record.cardId != null">
-        CARD_ID = #{record.cardId,jdbcType=CHAR},
+      <if test="record.personId != null">
+        PERSON_ID = #{record.personId,jdbcType=CHAR},
       </if>
       <if test="record.content != null">
         CONTENT = #{record.content,jdbcType=VARCHAR},
@@ -274,8 +264,7 @@
   <update id="updateByExample" parameterType="map">
     update d_person_other
     set ID = #{record.id,jdbcType=CHAR},
-      TRAIN_ID = #{record.trainId,jdbcType=CHAR},
-      CARD_ID = #{record.cardId,jdbcType=CHAR},
+      PERSON_ID = #{record.personId,jdbcType=CHAR},
       CONTENT = #{record.content,jdbcType=VARCHAR},
       EDUCATION_BACKGROUND = #{record.educationBackground,jdbcType=VARCHAR},
       LEARN_SITUATION = #{record.learnSituation,jdbcType=VARCHAR},
@@ -295,11 +284,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonOther">
     update d_person_other
     <set>
-      <if test="trainId != null">
-        TRAIN_ID = #{trainId,jdbcType=CHAR},
-      </if>
-      <if test="cardId != null">
-        CARD_ID = #{cardId,jdbcType=CHAR},
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=CHAR},
       </if>
       <if test="content != null">
         CONTENT = #{content,jdbcType=VARCHAR},
@@ -342,8 +328,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonOther">
     update d_person_other
-    set TRAIN_ID = #{trainId,jdbcType=CHAR},
-      CARD_ID = #{cardId,jdbcType=CHAR},
+    set PERSON_ID = #{personId,jdbcType=CHAR},
       CONTENT = #{content,jdbcType=VARCHAR},
       EDUCATION_BACKGROUND = #{educationBackground,jdbcType=VARCHAR},
       LEARN_SITUATION = #{learnSituation,jdbcType=VARCHAR},

@@ -17,20 +17,20 @@ public class DPersonOtherExample extends BaseExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -177,143 +177,73 @@ public class DPersonOtherExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdIsNull() {
-            addCriterion("TRAIN_ID is null");
+        public Criteria andPersonIdIsNull() {
+            addCriterion("PERSON_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdIsNotNull() {
-            addCriterion("TRAIN_ID is not null");
+        public Criteria andPersonIdIsNotNull() {
+            addCriterion("PERSON_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdEqualTo(String value) {
-            addCriterion("TRAIN_ID =", value, "trainId");
+        public Criteria andPersonIdEqualTo(String value) {
+            addCriterion("PERSON_ID =", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdNotEqualTo(String value) {
-            addCriterion("TRAIN_ID <>", value, "trainId");
+        public Criteria andPersonIdNotEqualTo(String value) {
+            addCriterion("PERSON_ID <>", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdGreaterThan(String value) {
-            addCriterion("TRAIN_ID >", value, "trainId");
+        public Criteria andPersonIdGreaterThan(String value) {
+            addCriterion("PERSON_ID >", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdGreaterThanOrEqualTo(String value) {
-            addCriterion("TRAIN_ID >=", value, "trainId");
+        public Criteria andPersonIdGreaterThanOrEqualTo(String value) {
+            addCriterion("PERSON_ID >=", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdLessThan(String value) {
-            addCriterion("TRAIN_ID <", value, "trainId");
+        public Criteria andPersonIdLessThan(String value) {
+            addCriterion("PERSON_ID <", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdLessThanOrEqualTo(String value) {
-            addCriterion("TRAIN_ID <=", value, "trainId");
+        public Criteria andPersonIdLessThanOrEqualTo(String value) {
+            addCriterion("PERSON_ID <=", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdLike(String value) {
-            addCriterion("TRAIN_ID like", value, "trainId");
+        public Criteria andPersonIdLike(String value) {
+            addCriterion("PERSON_ID like", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdNotLike(String value) {
-            addCriterion("TRAIN_ID not like", value, "trainId");
+        public Criteria andPersonIdNotLike(String value) {
+            addCriterion("PERSON_ID not like", value, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdIn(List<String> values) {
-            addCriterion("TRAIN_ID in", values, "trainId");
+        public Criteria andPersonIdIn(List<String> values) {
+            addCriterion("PERSON_ID in", values, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdNotIn(List<String> values) {
-            addCriterion("TRAIN_ID not in", values, "trainId");
+        public Criteria andPersonIdNotIn(List<String> values) {
+            addCriterion("PERSON_ID not in", values, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdBetween(String value1, String value2) {
-            addCriterion("TRAIN_ID between", value1, value2, "trainId");
+        public Criteria andPersonIdBetween(String value1, String value2) {
+            addCriterion("PERSON_ID between", value1, value2, "personId");
             return (Criteria) this;
         }
 
-        public Criteria andTrainIdNotBetween(String value1, String value2) {
-            addCriterion("TRAIN_ID not between", value1, value2, "trainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdIsNull() {
-            addCriterion("CARD_ID is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdIsNotNull() {
-            addCriterion("CARD_ID is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdEqualTo(String value) {
-            addCriterion("CARD_ID =", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdNotEqualTo(String value) {
-            addCriterion("CARD_ID <>", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdGreaterThan(String value) {
-            addCriterion("CARD_ID >", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdGreaterThanOrEqualTo(String value) {
-            addCriterion("CARD_ID >=", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdLessThan(String value) {
-            addCriterion("CARD_ID <", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdLessThanOrEqualTo(String value) {
-            addCriterion("CARD_ID <=", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdLike(String value) {
-            addCriterion("CARD_ID like", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdNotLike(String value) {
-            addCriterion("CARD_ID not like", value, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdIn(List<String> values) {
-            addCriterion("CARD_ID in", values, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdNotIn(List<String> values) {
-            addCriterion("CARD_ID not in", values, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdBetween(String value1, String value2) {
-            addCriterion("CARD_ID between", value1, value2, "cardId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCardIdNotBetween(String value1, String value2) {
-            addCriterion("CARD_ID not between", value1, value2, "cardId");
+        public Criteria andPersonIdNotBetween(String value1, String value2) {
+            addCriterion("PERSON_ID not between", value1, value2, "personId");
             return (Criteria) this;
         }
 
@@ -1152,6 +1082,38 @@ public class DPersonOtherExample extends BaseExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -1186,38 +1148,6 @@ public class DPersonOtherExample extends BaseExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }
