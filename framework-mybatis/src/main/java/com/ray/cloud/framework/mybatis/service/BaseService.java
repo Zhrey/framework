@@ -102,11 +102,12 @@ public abstract class BaseService<ENTITY extends BasicEntity, EXAMPLE extends Ba
     public ResultDTO<PageResultDTO<ENTITY>> selectByExamplePageable(@NotNull EXAMPLE example,
                                                                     Integer pageNo,
                                                                     Integer pageSize) {
+
         long count = mapper.countByExample(example);
         if (0 == count) {
             return ResultDTO.success(PageResultDTO.rows(0, null));
         }
-        example.setOrderBy(MysqlUtils.pageMysql(count, example.getOrderBy(), pageNo, pageSize));
+        example.setOrderByClause(MysqlUtils.pageMysql(count, example.getOrderByClause(), pageNo, pageSize));
         return ResultDTO.success(PageResultDTO.rows(count, mapper.selectByExample(example)));
     }
 }
