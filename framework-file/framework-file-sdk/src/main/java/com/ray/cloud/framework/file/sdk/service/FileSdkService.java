@@ -5,7 +5,8 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 /**
  * Created by ZhangRui on 2018/8/5.
@@ -14,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface FileSdkService {
 
     @RequestMapping(value = "file/uploadFile", method = RequestMethod.POST)
-    ResultDTO uploadFile(MultipartFile multipartFile);
+    ResultDTO uploadFile(@RequestParam("file") File file);
 
     @RequestMapping(value = "file/downloadFile", method = RequestMethod.GET)
     ResultDTO downloadFile(@RequestParam("filePath") String filePath,@RequestParam("fileName") String fileName);

@@ -63,6 +63,42 @@ public class FileUtil {
         return null;
     }
 
+    public static byte[] File2byte(File file)
+    {
+        byte[] buffer = null;
+        FileInputStream fis = null;
+        ByteArrayOutputStream bos = null;
+        try
+        {
+            fis = new FileInputStream(file);
+            bos = new ByteArrayOutputStream();
+            byte[] b = new byte[(int)file.length()];
+            int n;
+            while ((n = fis.read(b)) != -1)
+            {
+                bos.write(b, 0, n);
+            }
+            buffer = bos.toByteArray();
+        }catch (FileNotFoundException e){
+            log.error(e.getMessage(), e);
+        }catch (IOException e){
+            log.error(e.getMessage(), e);
+        }finally {
+
+            try {
+                if (null != fis) {
+                    fis.close();
+                }
+                if (null != bos) {
+                    bos.close();
+                }
+            } catch (IOException e) {
+                log.error(e.getMessage(), e);
+            }
+        }
+        return buffer;
+    }
+
 
 
     /**

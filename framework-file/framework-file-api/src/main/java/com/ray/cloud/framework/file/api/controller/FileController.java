@@ -6,13 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
+
+import static com.ray.cloud.framework.file.api.utils.FileUtil.File2byte;
 
 /**
  * 文件系统contrller层
@@ -36,14 +38,9 @@ public class FileController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> uploadFile(@RequestParam("file") MultipartFile multipartFile) {// TODO 参数驼峰命名
-        try {
-            Map<String, Object> data = fastDFSClient.uploadFile(multipartFile.getBytes(), multipartFile.getOriginalFilename());
-            return data;
-        } catch (IOException e) {
-            log.error(e.getMessage());
-            return null;
-        }
+    public Map<String, Object> uploadFile(@RequestParam("file") File file) {// TODO 参数驼峰命名
+        Map<String, Object> data = fastDFSClient.uploadFile(File2byte(file), file.getName());
+        return data;
     }
 
     @RequestMapping("/")
