@@ -16,7 +16,4 @@ public interface FileSdkService {
 
     @RequestMapping(value = "file/uploadFile", method = RequestMethod.POST)
     ResultDTO uploadFile(@RequestParam("file") File file);
-
-    @RequestMapping(value = "file/downloadFile", method = RequestMethod.GET)
-    ResultDTO downloadFile(@RequestParam("filePath") String filePath,@RequestParam("fileName") String fileName);
 }

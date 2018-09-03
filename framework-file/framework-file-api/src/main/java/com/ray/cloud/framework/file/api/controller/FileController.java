@@ -1,5 +1,6 @@
 package com.ray.cloud.framework.file.api.controller;
 
+import com.ray.cloud.framework.base.dto.ResultDTO;
 import com.ray.cloud.framework.file.api.client.FastDFSPoolClient;
 import com.ray.cloud.framework.file.api.utils.FileUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +13,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Map;
 
 import static com.ray.cloud.framework.file.api.utils.FileUtil.File2byte;
 
@@ -38,8 +38,8 @@ public class FileController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> uploadFile(@RequestParam("file") File file) {// TODO 参数驼峰命名
-        Map<String, Object> data = fastDFSClient.uploadFile(File2byte(file), file.getName());
+    public ResultDTO uploadFile(@RequestParam("file") File file) {// TODO 参数驼峰命名
+        ResultDTO data = fastDFSClient.uploadFile(File2byte(file), file.getName());
         return data;
     }
 

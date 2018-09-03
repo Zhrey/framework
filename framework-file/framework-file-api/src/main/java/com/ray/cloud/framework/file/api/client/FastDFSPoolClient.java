@@ -1,6 +1,8 @@
 package com.ray.cloud.framework.file.api.client;
 
 
+import com.ray.cloud.framework.base.dto.ResultDTO;
+import com.ray.cloud.framework.base.dto.ResultError;
 import com.ray.cloud.framework.file.api.pool.ConnectionPool;
 import com.ray.cloud.framework.file.api.utils.FileUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -36,20 +38,17 @@ public class FastDFSPoolClient {
      * @param fileName 文件名
      * @return
      */
-    public Map<String, Object> uploadFile(byte[] buff, String fileName) {
+    public ResultDTO uploadFile(byte[] buff, String fileName) {
         Map<String, Object> m = new HashMap<String, Object>();
             try {
                 String path = uploadFile(buff, fileName, null, null);
-                m.put("code", "0");
                 m.put("url", path);
-                m.put("msg", "上传成功");
-                return m ;
+                m.put("name", fileName);
+                return ResultDTO.success(m) ;
             } catch (Exception e) {
                 log.error(e.getMessage());
-                m.put("code", "1");
-                m.put("msg", "上传失败");
+                return ResultDTO.failure(ResultError.error("上传失败！")) ;
             }
-        return m ;
     }
 
     public String uploadFile(byte[] buff, String fileName, String groupName) {
