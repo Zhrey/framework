@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ray.cloud.framework.mybatis.mapper.DPersonProcessMapper">
+  <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DPersonProcess">
+    <id column="ID" jdbcType="CHAR" property="id" />
+    <result column="PERSON_ID" jdbcType="CHAR" property="personId" />
+    <result column="RECOMMEND_POSITION" jdbcType="INTEGER" property="recommendPosition" />
+    <result column="BU" jdbcType="INTEGER" property="bu" />
+    <result column="DELIVE_DEPARTMENT" jdbcType="INTEGER" property="deliveDepartment" />
+    <result column="PROJECT" jdbcType="INTEGER" property="project" />
+    <result column="JOB" jdbcType="INTEGER" property="job" />
+    <result column="SUBMIT_DATE" jdbcType="TIMESTAMP" property="submitDate" />
+    <result column="COME_FROM" jdbcType="INTEGER" property="comeFrom" />
+    <result column="FIRST_INTERVIEW" jdbcType="TIMESTAMP" property="firstInterview" />
+    <result column="SECOND_INTERVIEW" jdbcType="TIMESTAMP" property="secondInterview" />
+    <result column="JOIN_IN" jdbcType="TIMESTAMP" property="joinIn" />
+    <result column="QUIT_DATE" jdbcType="TIMESTAMP" property="quitDate" />
+    <result column="QUIT_REASON" jdbcType="VARCHAR" property="quitReason" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="DATA_FLAG" jdbcType="INTEGER" property="dataFlag" />
+    <result column="CREATE_USER" jdbcType="CHAR" property="createUser" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_USER" jdbcType="CHAR" property="updateUser" />
+    <result column="UPDATE_TIEM" jdbcType="TIMESTAMP" property="updateTiem" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, PERSON_ID, RECOMMEND_POSITION, BU, DELIVE_DEPARTMENT, PROJECT, JOB, SUBMIT_DATE, 
+    COME_FROM, FIRST_INTERVIEW, SECOND_INTERVIEW, JOIN_IN, QUIT_DATE, QUIT_REASON, STATUS, 
+    DATA_FLAG, CREATE_USER, CREATE_TIME, UPDATE_USER, UPDATE_TIEM
+  </sql>
+  <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonProcessExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_person_process
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from d_person_process
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonProcess">
+    insert into d_person_process (ID, PERSON_ID, RECOMMEND_POSITION, 
+      BU, DELIVE_DEPARTMENT, PROJECT, 
+      JOB, SUBMIT_DATE, COME_FROM, 
+      FIRST_INTERVIEW, SECOND_INTERVIEW, JOIN_IN, 
+      QUIT_DATE, QUIT_REASON, STATUS, 
+      DATA_FLAG, CREATE_USER, CREATE_TIME, 
+      UPDATE_USER, UPDATE_TIEM)
+    values (#{id,jdbcType=CHAR}, #{personId,jdbcType=CHAR}, #{recommendPosition,jdbcType=INTEGER}, 
+      #{bu,jdbcType=INTEGER}, #{deliveDepartment,jdbcType=INTEGER}, #{project,jdbcType=INTEGER}, 
+      #{job,jdbcType=INTEGER}, #{submitDate,jdbcType=TIMESTAMP}, #{comeFrom,jdbcType=INTEGER}, 
+      #{firstInterview,jdbcType=TIMESTAMP}, #{secondInterview,jdbcType=TIMESTAMP}, #{joinIn,jdbcType=TIMESTAMP}, 
+      #{quitDate,jdbcType=TIMESTAMP}, #{quitReason,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{dataFlag,jdbcType=INTEGER}, #{createUser,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=CHAR}, #{updateTiem,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonProcess">
+    insert into d_person_process
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="recommendPosition != null">
+        RECOMMEND_POSITION,
+      </if>
+      <if test="bu != null">
+        BU,
+      </if>
+      <if test="deliveDepartment != null">
+        DELIVE_DEPARTMENT,
+      </if>
+      <if test="project != null">
+        PROJECT,
+      </if>
+      <if test="job != null">
+        JOB,
+      </if>
+      <if test="submitDate != null">
+        SUBMIT_DATE,
+      </if>
+      <if test="comeFrom != null">
+        COME_FROM,
+      </if>
+      <if test="firstInterview != null">
+        FIRST_INTERVIEW,
+      </if>
+      <if test="secondInterview != null">
+        SECOND_INTERVIEW,
+      </if>
+      <if test="joinIn != null">
+        JOIN_IN,
+      </if>
+      <if test="quitDate != null">
+        QUIT_DATE,
+      </if>
+      <if test="quitReason != null">
+        QUIT_REASON,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateTiem != null">
+        UPDATE_TIEM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=CHAR},
+      </if>
+      <if test="recommendPosition != null">
+        #{recommendPosition,jdbcType=INTEGER},
+      </if>
+      <if test="bu != null">
+        #{bu,jdbcType=INTEGER},
+      </if>
+      <if test="deliveDepartment != null">
+        #{deliveDepartment,jdbcType=INTEGER},
+      </if>
+      <if test="project != null">
+        #{project,jdbcType=INTEGER},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=INTEGER},
+      </if>
+      <if test="submitDate != null">
+        #{submitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comeFrom != null">
+        #{comeFrom,jdbcType=INTEGER},
+      </if>
+      <if test="firstInterview != null">
+        #{firstInterview,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondInterview != null">
+        #{secondInterview,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinIn != null">
+        #{joinIn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitDate != null">
+        #{quitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitReason != null">
+        #{quitReason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="dataFlag != null">
+        #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTiem != null">
+        #{updateTiem,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonProcessExample" resultType="java.lang.Long">
+    select count(*) from d_person_process
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update d_person_process
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.personId != null">
+        PERSON_ID = #{record.personId,jdbcType=CHAR},
+      </if>
+      <if test="record.recommendPosition != null">
+        RECOMMEND_POSITION = #{record.recommendPosition,jdbcType=INTEGER},
+      </if>
+      <if test="record.bu != null">
+        BU = #{record.bu,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliveDepartment != null">
+        DELIVE_DEPARTMENT = #{record.deliveDepartment,jdbcType=INTEGER},
+      </if>
+      <if test="record.project != null">
+        PROJECT = #{record.project,jdbcType=INTEGER},
+      </if>
+      <if test="record.job != null">
+        JOB = #{record.job,jdbcType=INTEGER},
+      </if>
+      <if test="record.submitDate != null">
+        SUBMIT_DATE = #{record.submitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.comeFrom != null">
+        COME_FROM = #{record.comeFrom,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstInterview != null">
+        FIRST_INTERVIEW = #{record.firstInterview,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.secondInterview != null">
+        SECOND_INTERVIEW = #{record.secondInterview,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.joinIn != null">
+        JOIN_IN = #{record.joinIn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.quitDate != null">
+        QUIT_DATE = #{record.quitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.quitReason != null">
+        QUIT_REASON = #{record.quitReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.dataFlag != null">
+        DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTiem != null">
+        UPDATE_TIEM = #{record.updateTiem,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update d_person_process
+    set ID = #{record.id,jdbcType=CHAR},
+      PERSON_ID = #{record.personId,jdbcType=CHAR},
+      RECOMMEND_POSITION = #{record.recommendPosition,jdbcType=INTEGER},
+      BU = #{record.bu,jdbcType=INTEGER},
+      DELIVE_DEPARTMENT = #{record.deliveDepartment,jdbcType=INTEGER},
+      PROJECT = #{record.project,jdbcType=INTEGER},
+      JOB = #{record.job,jdbcType=INTEGER},
+      SUBMIT_DATE = #{record.submitDate,jdbcType=TIMESTAMP},
+      COME_FROM = #{record.comeFrom,jdbcType=INTEGER},
+      FIRST_INTERVIEW = #{record.firstInterview,jdbcType=TIMESTAMP},
+      SECOND_INTERVIEW = #{record.secondInterview,jdbcType=TIMESTAMP},
+      JOIN_IN = #{record.joinIn,jdbcType=TIMESTAMP},
+      QUIT_DATE = #{record.quitDate,jdbcType=TIMESTAMP},
+      QUIT_REASON = #{record.quitReason,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=INTEGER},
+      DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      UPDATE_TIEM = #{record.updateTiem,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonProcess">
+    update d_person_process
+    <set>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=CHAR},
+      </if>
+      <if test="recommendPosition != null">
+        RECOMMEND_POSITION = #{recommendPosition,jdbcType=INTEGER},
+      </if>
+      <if test="bu != null">
+        BU = #{bu,jdbcType=INTEGER},
+      </if>
+      <if test="deliveDepartment != null">
+        DELIVE_DEPARTMENT = #{deliveDepartment,jdbcType=INTEGER},
+      </if>
+      <if test="project != null">
+        PROJECT = #{project,jdbcType=INTEGER},
+      </if>
+      <if test="job != null">
+        JOB = #{job,jdbcType=INTEGER},
+      </if>
+      <if test="submitDate != null">
+        SUBMIT_DATE = #{submitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="comeFrom != null">
+        COME_FROM = #{comeFrom,jdbcType=INTEGER},
+      </if>
+      <if test="firstInterview != null">
+        FIRST_INTERVIEW = #{firstInterview,jdbcType=TIMESTAMP},
+      </if>
+      <if test="secondInterview != null">
+        SECOND_INTERVIEW = #{secondInterview,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinIn != null">
+        JOIN_IN = #{joinIn,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitDate != null">
+        QUIT_DATE = #{quitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitReason != null">
+        QUIT_REASON = #{quitReason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTiem != null">
+        UPDATE_TIEM = #{updateTiem,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonProcess">
+    update d_person_process
+    set PERSON_ID = #{personId,jdbcType=CHAR},
+      RECOMMEND_POSITION = #{recommendPosition,jdbcType=INTEGER},
+      BU = #{bu,jdbcType=INTEGER},
+      DELIVE_DEPARTMENT = #{deliveDepartment,jdbcType=INTEGER},
+      PROJECT = #{project,jdbcType=INTEGER},
+      JOB = #{job,jdbcType=INTEGER},
+      SUBMIT_DATE = #{submitDate,jdbcType=TIMESTAMP},
+      COME_FROM = #{comeFrom,jdbcType=INTEGER},
+      FIRST_INTERVIEW = #{firstInterview,jdbcType=TIMESTAMP},
+      SECOND_INTERVIEW = #{secondInterview,jdbcType=TIMESTAMP},
+      JOIN_IN = #{joinIn,jdbcType=TIMESTAMP},
+      QUIT_DATE = #{quitDate,jdbcType=TIMESTAMP},
+      QUIT_REASON = #{quitReason,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      CREATE_USER = #{createUser,jdbcType=CHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      UPDATE_TIEM = #{updateTiem,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ray.cloud.framework.mybatis.mapper.DPersonSituationMapper">
+  <resultMap id="BaseResultMap" type="com.ray.cloud.framework.mybatis.entity.DPersonSituation">
+    <id column="ID" jdbcType="CHAR" property="id" />
+    <result column="PERSON_ID" jdbcType="CHAR" property="personId" />
+    <result column="SITUATION_TYPE" jdbcType="INTEGER" property="situationType" />
+    <result column="INTERVIEW_RESULT" jdbcType="INTEGER" property="interviewResult" />
+    <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+    <result column="TALK_DATE" jdbcType="TIMESTAMP" property="talkDate" />
+    <result column="DATA_FLAG" jdbcType="INTEGER" property="dataFlag" />
+    <result column="CREATE_USER" jdbcType="CHAR" property="createUser" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_USER" jdbcType="CHAR" property="updateUser" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, PERSON_ID, SITUATION_TYPE, INTERVIEW_RESULT, MEMO, TALK_DATE, DATA_FLAG, CREATE_USER, 
+    CREATE_TIME, UPDATE_USER, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonSituationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from d_person_situation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from d_person_situation
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <insert id="insert" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonSituation">
+    insert into d_person_situation (ID, PERSON_ID, SITUATION_TYPE, 
+      INTERVIEW_RESULT, MEMO, TALK_DATE, 
+      DATA_FLAG, CREATE_USER, CREATE_TIME, 
+      UPDATE_USER, UPDATE_TIME)
+    values (#{id,jdbcType=CHAR}, #{personId,jdbcType=CHAR}, #{situationType,jdbcType=INTEGER}, 
+      #{interviewResult,jdbcType=INTEGER}, #{memo,jdbcType=VARCHAR}, #{talkDate,jdbcType=TIMESTAMP}, 
+      #{dataFlag,jdbcType=INTEGER}, #{createUser,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonSituation">
+    insert into d_person_situation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="situationType != null">
+        SITUATION_TYPE,
+      </if>
+      <if test="interviewResult != null">
+        INTERVIEW_RESULT,
+      </if>
+      <if test="memo != null">
+        MEMO,
+      </if>
+      <if test="talkDate != null">
+        TALK_DATE,
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG,
+      </if>
+      <if test="createUser != null">
+        CREATE_USER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=CHAR},
+      </if>
+      <if test="situationType != null">
+        #{situationType,jdbcType=INTEGER},
+      </if>
+      <if test="interviewResult != null">
+        #{interviewResult,jdbcType=INTEGER},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="talkDate != null">
+        #{talkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataFlag != null">
+        #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonSituationExample" resultType="java.lang.Long">
+    select count(*) from d_person_situation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update d_person_situation
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.personId != null">
+        PERSON_ID = #{record.personId,jdbcType=CHAR},
+      </if>
+      <if test="record.situationType != null">
+        SITUATION_TYPE = #{record.situationType,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewResult != null">
+        INTERVIEW_RESULT = #{record.interviewResult,jdbcType=INTEGER},
+      </if>
+      <if test="record.memo != null">
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.talkDate != null">
+        TALK_DATE = #{record.talkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dataFlag != null">
+        DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createUser != null">
+        CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUser != null">
+        UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update d_person_situation
+    set ID = #{record.id,jdbcType=CHAR},
+      PERSON_ID = #{record.personId,jdbcType=CHAR},
+      SITUATION_TYPE = #{record.situationType,jdbcType=INTEGER},
+      INTERVIEW_RESULT = #{record.interviewResult,jdbcType=INTEGER},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
+      TALK_DATE = #{record.talkDate,jdbcType=TIMESTAMP},
+      DATA_FLAG = #{record.dataFlag,jdbcType=INTEGER},
+      CREATE_USER = #{record.createUser,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{record.updateUser,jdbcType=CHAR},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonSituation">
+    update d_person_situation
+    <set>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=CHAR},
+      </if>
+      <if test="situationType != null">
+        SITUATION_TYPE = #{situationType,jdbcType=INTEGER},
+      </if>
+      <if test="interviewResult != null">
+        INTERVIEW_RESULT = #{interviewResult,jdbcType=INTEGER},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="talkDate != null">
+        TALK_DATE = #{talkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dataFlag != null">
+        DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        CREATE_USER = #{createUser,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ray.cloud.framework.mybatis.entity.DPersonSituation">
+    update d_person_situation
+    set PERSON_ID = #{personId,jdbcType=CHAR},
+      SITUATION_TYPE = #{situationType,jdbcType=INTEGER},
+      INTERVIEW_RESULT = #{interviewResult,jdbcType=INTEGER},
+      MEMO = #{memo,jdbcType=VARCHAR},
+      TALK_DATE = #{talkDate,jdbcType=TIMESTAMP},
+      DATA_FLAG = #{dataFlag,jdbcType=INTEGER},
+      CREATE_USER = #{createUser,jdbcType=CHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_USER = #{updateUser,jdbcType=CHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+</mapper>

@@ -64,10 +64,22 @@
         <!--</table>-->
 
         <table schema="candidate_management"
-               tableName="d_person_file"
+               tableName="d_person_process"
                enableDeleteByExample="false"
                enableDeleteByPrimaryKey="false">
         </table>
+
+        <table schema="candidate_management"
+               tableName="d_person_situation"
+               enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false">
+        </table>
+
+        <!--<table schema="candidate_management"-->
+               <!--tableName="d_person_file"-->
+               <!--enableDeleteByExample="false"-->
+               <!--enableDeleteByPrimaryKey="false">-->
+        <!--</table>-->
 
         <!--<table schema="candidate_management"-->
                <!--tableName="d_person_other"-->
